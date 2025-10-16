@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CI/CD Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        p {
+            font-size: 1.1em;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My CI/CD Project!</h1>
+        <p>This is a simple HTML website undergoing a CI/CD process with Jenkins and SonarCloud.</p>
+        <p>Continuous Integration and Continuous Delivery are awesome!</p>
+        <!-- A small quality issue to be found by SonarCloud -->
+        <script>
+            var x = 10;
+            if (x == "10") { // SonarCloud might flag this as a type-conversion issue
+                console.log("x is 10");
+            }
+        </script>
+    </div>
+</body>
