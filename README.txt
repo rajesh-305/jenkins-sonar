@@ -49,3 +49,35 @@ Place this file at the root of your Git repository, alongside index.html
 
 
 
+
+Part 5: Create Jenkins Job
+1. Create a New Item in Jenkins:
+From the Jenkins dashboard, click "New Item".
+Enter an Item Name (e.g., simple-html-cicd).
+Select "Pipeline".
+Click OK.
+2. Configure the Pipeline Job:
+General: (Optional) Add a description.
+Build Triggers:
+You can set up GitHub hook trigger for GITScm polling or Poll SCM if you want automatic builds on commit. For this guide, we'll manually trigger it.
+Pipeline:
+Definition: Select "Pipeline script from SCM".
+SCM: Select "Git".
+Repository URL: Paste the URL of your Git repository (e.g., https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPO_NAME>.git).
+Credentials: If your repository is private, add your GitHub credentials here.
+Branches to build: */main (or */master if that's your branch name).
+Script Path: Jenkinsfile (this is the default, ensure your file is named exactly this).
+Click Save.
+Part 6: Run the Pipeline and View Results
+1. Trigger the Build:
+Go to your new Jenkins job (simple-html-cicd).
+Click "Build Now" in the left-hand menu.
+2. Monitor the Build:
+Watch the build history. Click on the running build number and then "Console Output" to see the logs.
+The SonarQube Analysis stage will run, and you should see output indicating that the scanner is sending data to SonarCloud.
+The Quality Gate Check stage will wait for SonarCloud to report back.
+3. View Results on SonarCloud:
+After the Jenkins build completes successfully, go back to your SonarCloud project page.
+You should see the analysis results for your index.html file. It should detect the minor "quality issue" we intentionally introduced (the x == "10" comparison).
+The Quality Gate should pass (unless you have very strict default rules).
+
